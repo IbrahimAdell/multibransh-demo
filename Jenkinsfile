@@ -25,6 +25,7 @@ pipeline {
 			withCredentials([usernamePassword(credentialsId: "${dockerHubCredentialsID}", usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
 				sh "docker login -u ${USERNAME} -p ${PASSWORD}"
         		}
+			sh "docker push ${imageName}-${BRANCH_NAME}:${BUILD_NUMBER}"
                 }
             }
         }
