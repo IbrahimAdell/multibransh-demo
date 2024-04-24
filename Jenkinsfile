@@ -3,7 +3,7 @@ pipeline {
     
     environment {
         dockerHubCredentialsID	    = 'DockerHub'  		    			// DockerHub credentials ID.
-        imageName   		    = 'ibrahimadel10/NTI-app'     			// DockerHub repo/image name.
+        imageName   		    = 'ibrahimadel10/nti-app'     			// DockerHub repo/image name.
     }
     
     stages {       
@@ -12,7 +12,7 @@ pipeline {
             steps {
                 script {
         		echo "Building docker image ..."
-        		sh "docker build -t ${imageName}:${BUILD_NUMBER} ."
+        		sh "docker build -t ${imageName}-${BRANCH_NAME}:${BUILD_NUMBER} ."
                 }
             }
         }
